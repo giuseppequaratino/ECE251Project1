@@ -1,9 +1,9 @@
 # Makefile
 .PHONY: clean
-all: concat.out
+all: string.out
 
-concat.out: concat.S
+string.out: string.S
 	arm-linux-gnueabi-gcc $< -o $@ -ggdb3 -static
 
 clean:
-	rm -f concat.out
+	rm -f string.out
