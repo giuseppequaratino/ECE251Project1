@@ -1,15 +1,14 @@
 .data
 .balign 4
-        format: .asciz "%10[0-9a-zA-Z ]"
+        format: .asciz "%[0-9a-zA-Z ]"
 .balign 4
         string: .asciz "I read the word: %s\n"
 .balign 4
         prompt: .asciz "Hey, give me a word\n"
 .balign 4
-        storage: .space 80
+        storage: .space 16
 
 .text
-
 .global main
 .global printf
 .global scanf
@@ -32,4 +31,4 @@ main:
 addr_prompt: .word prompt
 addr_format: .word format
 addr_string: .word string
-addr_storage: .word storage                         
+addr_storage: .word storage                       
