@@ -1,12 +1,12 @@
 .data
 .balign 4
-        format: .asciz "%[^ ]"
+        format: .asciz "%10[0-9a-zA-Z ]"
 .balign 4
         string: .asciz "I read the word: %s\n"
 .balign 4
         prompt: .asciz "Hey, give me a word\n"
-
-storage: .space 80
+.balign 4
+        storage: .space 80
 
 .text
 
