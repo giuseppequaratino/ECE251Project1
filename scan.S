@@ -3,7 +3,7 @@
         format: .asciz "%[^ ]"
 .balign 4
         string: .asciz "I read the word: %s\n"
-.balign
+.balign 4
         prompt: .asciz "Hey, give me a word\n"
 
 storage: .space 80
