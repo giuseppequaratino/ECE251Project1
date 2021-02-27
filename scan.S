@@ -32,5 +32,4 @@ main:
 addr_prompt: .word prompt
 addr_format: .word format
 addr_string: .word string
-addr_storage: .word storage
-~                            
+addr_storage: .word storage                         
