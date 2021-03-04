@@ -14,7 +14,7 @@ printf_msg: .asciz "I read the number %d\n"
 scan_pattern: .asciz "%d"
 
 /* Where scanf will store the number read */
-.balign4
+.balign 4
 number_read: .word 0
 
 .balign 4
@@ -23,7 +23,7 @@ return: .word 0
 .text
 .global main
 main:
-	ldr r1, address of return 
+	ldr r1, address_of_return 
 	str lr, [r1] /* store link register to exit out of main later. lr ==> address of function after main */
 
 	ldr r0, address_of_scanf_msg /* r0 is the first argument of printf */ 
