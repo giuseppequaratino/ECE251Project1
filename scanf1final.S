@@ -33,12 +33,13 @@ main:
         ldr r1, addr_of_string1
         bl scanf
 
-
+        mov r5, #0
         mov r10,#0
         ldr r1, addr_of_string1
         ldrb r0, [r1]
-        cmp r0, #0
-        beq printConcat
+        cmp r0, #10
+        moveq r10,r5
+        beq second
         add r10, r10, #1
 loop:
         cmp r10, #13
@@ -61,8 +62,9 @@ second:
         mov r11, #0
         ldr r2, addr_of_string2
         ldrb r3, [r2]
-        cmp r3, #0
-        beq end
+        cmp r3, #10
+        moveq r10, r5
+        beq printConcat
         add r11, r11, #1
 
 loop2:
