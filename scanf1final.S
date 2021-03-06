@@ -5,7 +5,7 @@
 .balign 4
         message: .asciz "Input a string that is at most 12 characters:\n"
 .balign 4
-        output: .asciz "Here's the concatenated string: %s%s\nIt has %d characters.\n"
+        output: .asciz "Here's the concatenated string:\n%s%s\nIt has %d characters.\n"
 .balign 4
         errorM1: .asciz "Error code 7: The string has more than 12 characters.\n"
 .balign 4
