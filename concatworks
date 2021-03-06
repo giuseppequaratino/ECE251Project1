@@ -1,0 +1,107 @@
+.data
+.balign 4
+        message: .asciz "Input a string that is at most 12 characters:\n"
+.balign 4
+        output: .asciz "Here's the concatenated string: %s%s\nIt has %d characters.\n"
+.balign 4
+        errorM1: .asciz "Error code 7: The string has more than 12 characters.\n"
+.balign 4
+        errorM2: .asciz "Error code 8: The string has more than 12 characters.\n"
+.balign 4
+        string1: .space 16
+.balign 4
+        string2: .space 16
+.balign 4
+        return: .word 0
+
+.text
+.global main
+.global printf
+.global fgets
+
+main:
+        ldr r1, =return
+        str lr, [r1]
+
+        ldr r0, =message
+        bl printf
+
+        ldr r0, =string1
+        mov r1, #14
+        ldr r2, =stdin
+        ldr r2, [r2]
+        bl fgets
+
+        mov r10, #0  
+        b loop1
+   
+loop1:
+        ldr r1, =string1
+        ldrb r0, [r1, r10]
+        cmp r0, #0
+        beq second
+        cmp r10, #13
+        beq firsterror
+        add r10, r10, #1
+        b loop1
+
+second:
+        ldr r0, =message
+        bl printf
+
+        ldr r0, =string2
+        mov r1, #14
+        ldr r2, =stdin
+        ldr r2, [r2]
+        bl fgets
+
+        mov r11, #0
+        b loop2
+
+loop2:
+        ldr r2, =string2
+        ldrb r3, [r2, r11]
+        cmp r3, #0
+        beq printConcat
+        cmp r11, #13
+        beq seconderror
+        add r11, r11, #1
+        b loop2
+        
+printConcat:
+        ldr r0, =output
+        ldr r1, =string1
+        ldr r2, =string2
+        add r3,r10,r11
+        mov r4, r3
+        bl printf
+        mov r0, r3
+        b end
+
+firsterror:
+        ldr r0, =errorM1
+        bl printf
+        mov r0, #7
+        b end
+
+seconderror:
+        ldr r0, =errorM2
+        bl printf
+        mov r0, #8
+        b end
+
+end:
+        ldr lr, =return
+        ldr lr, [lr]
+        bx lr
+
+
+addr_of_stdin: .word stdin
+addr_of_output: .word output
+addr_of_message: .word message
+addr_of_string1: .word string1
+addr_of_string2: .word string2
+addr_of_return: .word return
+addr_of_errorM1: .word errorM1
+addr_of_errorM2: .word errorM2
+                              
