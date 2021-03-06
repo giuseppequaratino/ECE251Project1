@@ -41,12 +41,12 @@ main:
         beq printConcat
         add r10, r10, #1
 loop:
+        cmp r10, #14
+        beq firsterror
         ldrb r0, [r1, #+1]
         add r1, r1, #1
         cmp r0, #0
         beq second
-        cmp r10, #14
-        beq firsterror
         add r10, r10, #1
         b loop
 
@@ -66,12 +66,12 @@ second:
         add r11, r11, #1
 
 loop2:
+        cmp r11, #14
+        beq seconderror
         ldrb r3, [r2, #+1]
         add r2, r2, #1
         cmp r3, #0
         beq printConcat
-        cmp r11, #14
-        beq seconderror
         add r11, r11, #1
         b loop2        
 
