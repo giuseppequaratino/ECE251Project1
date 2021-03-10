@@ -1,9 +1,9 @@
 # Makefile
 .PHONY: clean
-all: string.out
+all: code1.out
 
-string.out: string.S
+code1.out: code1.S
 	arm-linux-gnueabi-gcc $< -o $@ -ggdb3 -static
 
 clean:
-	rm -f string.out
+	rm -f code1.out
