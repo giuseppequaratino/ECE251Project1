@@ -1,19 +1,33 @@
 .data
 
+/* specifier only reads in 14 characters*/
+/* doesn't read in the new line character */
 .balign 4
 	pattern: .asciz "%14[^\n]%*c"
 .balign 4
 	message: .asciz "Input a string that is at most 12 characters:\n"
+	
+/* program's output string. Gives concatenated string & total number of characters */
 .balign 4
 	output: .asciz "Here's the concatenated string:\n%s%s\nIt has %d characters.\n"
+
+/* If scanf reads in more than 14 characters, program prints out these error messages */
+
+/* for string1 */
 .balign 4
 	errorM1: .asciz "Error code 7: The string has more than 12 characters.\n"
+	
+/* for string2 */
 .balign 4
 	errorM2: .asciz "Error code 8: The string has more than 12 characters.\n"
+	
+/* allocates 16 bytes of memory for string1 and string2 */
 .balign 4 
 	string1: .space 16
+
 .balign 4
 	string2: .space 32
+
 .balign 4
 	return: .word 0
 
