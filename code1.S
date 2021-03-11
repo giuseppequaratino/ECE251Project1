@@ -7,7 +7,7 @@
 .balign 4
 	message: .asciz "Input a string that is at most 12 characters:\n"
 	
-/* program's output string. Gives concatenated string & total number of characters */
+/* program's output string, gives concatenated string & total number of characters */
 .balign 4
 	output: .asciz "Here's the concatenated string:\n%s%s\nIt has %d characters.\n"
 
@@ -26,7 +26,7 @@
 	string1: .space 16
 
 .balign 4
-	string2: .space 32
+	string2: .space 16
 
 .balign 4
 	return: .word 0
