@@ -1,9 +1,9 @@
+
 # Makefile
 .PHONY: clean
-all: code1.out
+all: operate.out
 
-code1.out: code1.S
-	arm-linux-gnueabi-gcc $< -o $@ -ggdb3 -static
-
+operate.out: operate.S
+        arm-linux-gnueabi-gcc $< -o $@ -ggdb3 -static -mfpu=vfp -mfloat-abi=hard -lm
 clean:
-	rm -f code1.out
+        rm -f operate.out
