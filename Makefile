@@ -1,4 +1,3 @@
-
 # Makefile
 .PHONY: clean
 all: operate.out
