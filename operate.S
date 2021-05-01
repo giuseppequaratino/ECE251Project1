@@ -19,7 +19,6 @@
 .global printf
 .global scanf
 
-
 main:
         PUSH {R0, LR}
         LDR R0, =enterFirst
