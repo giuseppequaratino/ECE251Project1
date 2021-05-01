@@ -6,13 +6,13 @@
 .balign 4
         inputFormat: .asciz "%f"
 .balign 4
-        add:      .asciz "The result of adding is: %f\n"
+        addition:      .asciz "The result of adding is: %f\n"
 .balign 4
-        sub:      .asciz "The result of subtracting is: %f\n"
+        subtraction:      .asciz "The result of subtracting is: %f\n"
 .balign 4
-        mul:      .asciz "The result of multiplying is: %f\n"
+        multiply:      .asciz "The result of multiplying is: %f\n"
 .balign 4
-        div:      .asciz "The result of diviving is: %f\n"
+        division:      .asciz "The result of diviving is: %f\n"
 
 .text
 .global main
@@ -43,22 +43,22 @@ main:
 
 	VADD.F64 D0, D1, D2
         VMOV R2, R3, D0
-        LDR R0, =add
+        LDR R0, =addition
         BL printf
 
         VSUB.F64 D0, D1, D2
         VMOV R2, R3, D0
-        LDR R0, =sub
+        LDR R0, =subtraction
         BL printf
 
         VMUL.F64 D0, D1, D2
         VMOV R2, R3, D0
-        LDR R0, =mul
+        LDR R0, =multiply
         BL printf
 
         VDIV.F64 D0, D1, D2
         VMOV R2, R3, D0
-        LDR R0, =div
+        LDR R0, =division
         BL printf
 
         ADD SP, SP, #16
